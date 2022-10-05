@@ -13,7 +13,7 @@ import lombok.Data;
 @Data
 public class Servicios {
     public String nombre;
-    public int precio;
+    public Double precio;
 
 }
 

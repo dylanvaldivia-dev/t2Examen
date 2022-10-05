@@ -46,7 +46,7 @@ public class Controlador {
             Model model) {
         Servicios s = new Servicios();
         s.setNombre(nom);
-        s.setPrecio(Integer.parseInt(pre));
+        s.setPrecio(Double.parseDouble(pre));
         listaservicio.add(s);
 
         model.addAttribute("Servicios", listaservicio);
@@ -78,7 +78,7 @@ public class Controlador {
 
             if (i == id - 1) {
                 listaservicio.get(i).setNombre(nom);
-                listaservicio.get(i).setPrecio(Integer.parseInt(pre));
+                listaservicio.get(i).setPrecio(Double.parseDouble(pre));
                
             }
         }
@@ -92,7 +92,7 @@ public class Controlador {
         for (int i = 0; i < listaservicio.size(); i++) {
             String id = String.valueOf(i + 1);
             String nombre = listaservicio.get(i).getNombre();
-            int precio = listaservicio.get(i).getPrecio();
+            Double precio = listaservicio.get(i).getPrecio();
  
             if(dato.equals(id)|| dato.equals(nombre) ){
                 Servicios s = new Servicios();
@@ -105,7 +105,7 @@ public class Controlador {
             {
                 Servicios s = new Servicios();
                 s.setNombre("");
-                s.setPrecio(0);
+                s.setPrecio(0.0);
                 
    
                 lista.add(s);
