@@ -144,23 +144,19 @@ public class Controlador {
 
         return "ListarAtencion"; 
     }
-    /*
-        @PostMapping("/actualizaratencion") // http://localhost/actualizar
-    public String ActualizarAtencion(@RequestParam("id") int id,
-            @RequestParam("nom") String nom,
-            @RequestParam("pre") String pre,
-            Model model) {
+   
+    @GetMapping("/eliminarAtencion")
+    public String EliminarAtencion(@RequestParam("ids") int id, Model modelo) {
         for (int i = 0; i < listaatencion.size(); i++) {
 
             if (i == id - 1) {
-                listaatencion.get(i).setNombre(nom);
-                listaatencion.get(i).setPrecio(pre);
-               
+
+                listaatencion.remove(i);
             }
         }
-        return Listadodeservicios(model);
+
+        return ListaAtencion(modelo);
     }
-    */
     /*REPORTES*/
  
 }

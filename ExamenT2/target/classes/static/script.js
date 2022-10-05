@@ -56,6 +56,35 @@ function eliminarservicios(opcion) {
         }
     });
 }
+function eliminaratenciones(opcion) {
+    event.preventDefault();
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!',
+
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: 'Deleted!',
+                text: 'Your file has been deleted.',
+                icon: 'success',
+                allowOutsideClick: false,
+                allwEscapeKey: false
+
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.href = opcion.href;
+                }
+            });
+
+        }
+    });
+}
 function ActualizarAlert() {
     event.preventDefault();
     Swal.fire({
@@ -115,27 +144,27 @@ function modalAtencion()
     modalAgregarAtencion.addEventListener('show.bs.modal', event => {
 
         const button = event.relatedTarget;
-        
+
         const servicio = button.getAttribute('data-bs-servicio');
-        const precio = button.getAttribute('data-bs-prec');
-        const igv = precio*.18;
-        const total=precio+igv;
+        const precio = 12;//button.getAttribute('data-bs-prec');
+        const igv = precio * .18;
+        const total = precio + igv;
 
         const campoMascota = document.getElementById('masc'); // nombres de los id en el campo del modal
         const campoServicio = document.getElementById('ser');
         const campoPrecio = document.getElementById('prec2');
-        const campoigv=document.getElementById('igv');
-        const campototal=document.getElementById('total');
-        
+        const campoigv = document.getElementById('igv');
+        const campototal = document.getElementById('total');
+
         campoServicio.value = servicio;
-        campoPrecio.value = precio;
-        campoigv=igv;
-        campototal=total;
+        //campoPrecio.value = precio;
+        campoigv = igv;
+        campototal = total;
     });
 }
 
-function cargarFunciones(){
-   modalAtencion(); 
-   modal();
+function cargarFunciones() {
+    modalAtencion();
+    modal();
 }
 

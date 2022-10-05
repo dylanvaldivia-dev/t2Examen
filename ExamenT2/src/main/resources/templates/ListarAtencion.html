@@ -59,8 +59,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                     data-bs-precio=${atencion.precio},data-bs-igv=${atencion.igv}, data-bs-total=${atencion.total}"> <i class="bi bi-pencil-fill"> </i>
                             </button>
                            
-                            <a onclick="return eliminaratenciones(this)" th:href="@{/eliminaratenciones(id=${status.count})}" class="btn btn-danger" type="button"><i class="bi bi-trash"></i></a></td>
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalRegistrarPaciente"><i class="bi bi-check2-square"></i>
+                            <a onclick="return eliminaratenciones(this)" th:href="@{/eliminarAtencion(ids=${status.count})}" class="btn btn-danger" type="button"><i class="bi bi-trash"></i></a>
+                        </td>
+                   
                     </button>
                     </td>
                     </tr>
