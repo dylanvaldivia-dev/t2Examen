@@ -14,9 +14,9 @@ import lombok.Data;
 public class Atencion {
     public String nombreMascota;
     public String servicio;
-    public String precio;
-    public String igv;
-    public String total;
+    public Double precio;
+    public Double igv;
+    public Double total;
     
     
 }

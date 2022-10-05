@@ -18,17 +18,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class Controlador {
    ArrayList<Servicios> listaservicio = new ArrayList();
-   ArrayList<Servicios> listaatencion = new ArrayList();
+   ArrayList<Atencion> listaatencion = new ArrayList();
    /* PAGINA PRINCIPAL*/
     @GetMapping("/") 
     public String Formulario() {
         return "index"; 
     } 
     
-    @GetMapping("/regS") 
-    public String vistaRegistrarServicios() {
-        return "RegistrarServicios"; 
-    } 
+ 
+    /*CRUD SERVICIOS*/
+    
     
      @GetMapping("/servicios")
     public String Listadodeservicios(Model model) {
@@ -36,9 +35,7 @@ public class Controlador {
 
         return "ListarServicio"; 
     }
-
     
-    /*CRUD SERVICIOS*/
     @PostMapping("/registrarservicio") 
     public String Registrarservicio(
             @RequestParam("nom") String nom,
@@ -120,8 +117,30 @@ public class Controlador {
     
     /*CRUD ATENCION*/
     @GetMapping("/atencion")
-    public String ListaAtencion(Model model) {
-        model.addAttribute("Atenciones", listaatencion);
+    public String ListaAtencion(Model modelo) {
+        modelo.addAttribute("Atenciones", listaatencion);
+
+        return "ListarAtencion"; 
+    }
+    
+    @PostMapping("/registraratencion") 
+    public String RegistrarAtencion(
+            @RequestParam("masc") String masc,
+            @RequestParam("ser") String ser,
+            @RequestParam("prec2") String prec2,
+            @RequestParam("igv") String igv,
+            @RequestParam("total") String total,
+            Model modelo) {
+        Atencion a = new Atencion();
+        a.setNombreMascota(masc);
+        a.setServicio(ser);
+        a.setPrecio(Double.parseDouble(prec2));
+        a.setIgv(Double.parseDouble(igv));
+        a.setTotal(Double.parseDouble(total));
+        
+        listaatencion.add(a);
+
+        modelo.addAttribute("Servicios", listaatencion);
 
         return "ListarAtencion"; 
     }

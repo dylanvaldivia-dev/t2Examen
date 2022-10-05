@@ -1,7 +1,7 @@
 
 
 //sweeet alerts
-function Guardarservicio()
+function GuardarSwet(opcion)
 {
     event.preventDefault();
     Swal.fire({
@@ -18,12 +18,14 @@ function Guardarservicio()
  `
     }).then((result) => {
         if (result.isConfirmed) {
-            const formulario = document.getElementById("guardar");
+            const formulario = document.getElementById(opcion);
             formulario.submit();
         }
 
-    })
+    });
 }
+
+
 
 function eliminarservicios(opcion) {
     event.preventDefault();
@@ -106,27 +108,30 @@ function modal()
     });
 }
 
-/*
+
 function modalAtencion()
 {
-    const exampleModal = document.getElementById('modalActualizar')
-    exampleModal.addEventListener('show.bs.modal', event => {
+    const modalAgregarAtencion = document.getElementById('modalAgregarAtencion')
+    modalAgregarAtencion.addEventListener('show.bs.modal', event => {
 
         const button = event.relatedTarget
+        const servicio = button.getAttribute('data-bs-servicio');
+        const precio = button.getAttribute('data-bs-prec');
+        const igv = precio*.18;
+        const total=precio+igv;
 
-        const id = button.getAttribute('data-bs-id');
-        const nombres = button.getAttribute('data-bs-nombre');
-        const precio = button.getAttribute('data-bs-precio');
-
-        const campoId = document.getElementById('id'); // nombres de los id en el campo del modal
-        const campoNombres = document.getElementById('nom');
-        const campoPrecio = document.getElementById('pre');
-
-        campoId.value = id;
-        campoNombres.value = nombres;
+        const campoMascota = document.getElementById('masc'); // nombres de los id en el campo del modal
+        const campoServicio = document.getElementById('ser');
+        const campoPrecio = document.getElementById('prec2');
+        const campoigv=document.getElementById(igv);
+        const campototal=document.getElementById(total);
+        
+        campoServicio.value = servicio;
         campoPrecio.value = precio;
+        campoigv=igv;
+        campototal=total;
     });
 }
-*/
+
 
 
