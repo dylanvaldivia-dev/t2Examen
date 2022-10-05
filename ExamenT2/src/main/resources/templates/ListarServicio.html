@@ -22,14 +22,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <!-- Listar Servicios -->
         <div class="container">
             <div class="d-flex my-3">
-                <!--
+                
                 <div>
-                    <button type="button" class="btn btn-success btn-lg mt-1" data-bs-toggle data-bs-target="#modalAgregar">Agregar Servicio</button>
+                    <button type="button" class="btn btn-success btn-lg mt-1" data-bs-toggle="modal" data-bs-target="#modalAgregar">Agregar Servicio</button>
                 </div>
-                -->
-                <div>
-                    <a class="btn btn-success" th:href="@{/regS}">Registrar Servicios</a>
-                </div>
+                
                 
                 <form class="form-floating ms-auto" role="buscar" action="buscarservicios" method="POST">
                     <input class="form-control rounded-pill" type="search"  placeholder="nombre o precio"  id="dato" name="dato" required="required">
@@ -67,6 +64,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             </div>
         </div>
     </body>
-  <!--  <div th:insert="modals:: #modalAgregar"></div>-->
+ <div th:insert="modals:: #modalAgregar"></div> 
     <div th:insert="modals:: #modalActualizar"></div>
 </html>

@@ -70,9 +70,9 @@ public class Controlador {
     }
 
     @PostMapping("/actualizarservicios") // http://localhost/actualizar
-    public String Actualizarservicios(@RequestParam("id") int id,
-            @RequestParam("nom") String nom,
-            @RequestParam("pre") String pre,
+    public String Actualizarservicios(@RequestParam("id1") int id,
+            @RequestParam("nom1") String nom,
+            @RequestParam("pre1") String pre,
             Model model) {
         for (int i = 0; i < listaservicio.size(); i++) {
 

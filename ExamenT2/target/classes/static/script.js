@@ -96,9 +96,9 @@ function modal()
         const nombres = button.getAttribute('data-bs-nombre');
         const precio = button.getAttribute('data-bs-precio');
 
-        const campoId = document.getElementById('id');
-        const campoNombres = document.getElementById('nom');
-        const campoPrecio = document.getElementById('pre');
+        const campoId = document.getElementById('id1');
+        const campoNombres = document.getElementById('nom1');
+        const campoPrecio = document.getElementById('pre1');
 
         campoId.value = id;
         campoNombres.value = nombres;
