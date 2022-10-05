@@ -40,9 +40,6 @@ function modal()
         campoId.value = id;
         campoNombres.value = nombres;
         campoPrecio.value = precio;
-
-        // modalTitle.textContent = New message to ${recipient}
-        // modalBodyInput.value = recipient
     })
 }
 
@@ -64,9 +61,6 @@ function modalAtencion()
         campoId.value = id;
         campoNombres.value = nombres;
         campoPrecio.value = precio;
-
-        // modalTitle.textContent = New message to ${recipient}
-        // modalBodyInput.value = recipient
     })
 }
 

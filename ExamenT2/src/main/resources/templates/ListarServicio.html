@@ -45,7 +45,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         <td th:text="${status.count}"></td>
                         <td th:text="${servicio.nombre}"></td>
                         <td th:text="${servicio.precio}"></td>
-                        <td><button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalActualizar" th:attr="data-bs-id=${status.count},data-bs-nombre=${servicio.nombre},data-bs-precio=${servicio.precio}"><i class="bi bi-pencil-fill"></i></button></td>
+                        <td><button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalActualizar" 
+                            th:attr="data-bs-id=${status.count},data-bs-nombre=${servicio.nombre},data-bs-precio=${servicio.precio}">
+                            <i class="bi bi-pencil-fill"></i></button></td>
                         <td><a onclick="return eliminarservicios(this)" th:href="@{/eliminarservicios(id=${status.count})}" class="btn btn-danger" type="button"><i class="bi bi-trash"></i></a></td>
                         <td><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalRegistrarPaciente"><i class="bi bi-check2-square"></i></button></td>
                     </tr>

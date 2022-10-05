@@ -50,7 +50,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         <td th:text="${atencion.precio}"></td>
                         <td th:text="${atencion.igv}"></td>
                         <td th:text="${atencion.total}"></td>
-                        <td><button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalActualizar" th:attr="data-bs-id=${status.count},data-bs-nombreMascota=${atencion.nombreMascota},data-bs-servicio=${atencion.servicio},data-bs-precio=${atencion.precio},data-bs-igv=${atencion.igv}, data-bs-total=${atencion.total}"><i class="bi bi-pencil-fill"></i></button></td>
+                        <td><button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalActualizar" 
+                                    th:attr="data-bs-id=${status.count},data-bs-nombreMascota=${atencion.nombreMascota},data-bs-servicio=${atencion.servicio},
+                                    data-bs-precio=${atencion.precio},data-bs-igv=${atencion.igv}, data-bs-total=${atencion.total}"><i class="bi bi-pencil-fill">                                       
+                                </i></button></td>
                         <td><a onclick="return eliminaratenciones(this)" th:href="@{/eliminaratenciones(id=${status.count})}" class="btn btn-danger" type="button"><i class="bi bi-trash"></i></a></td>
                         <td><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalRegistrarPaciente"><i class="bi bi-check2-square"></i></button></td>
                     </tr>

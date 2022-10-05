@@ -12,8 +12,8 @@ import lombok.Data;
  */
 @Data
 public class Servicios {
-public String nombre;
-public Double precio;
+    public String nombre;
+    public String precio;
 
 }
 
