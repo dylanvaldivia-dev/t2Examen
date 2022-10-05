@@ -94,7 +94,7 @@ public class Controlador {
             String nombre = listaservicio.get(i).getNombre();
             Double precio = listaservicio.get(i).getPrecio();
  
-            if(dato.equals(id)|| dato.equals(nombre) ){
+            if(dato.equals(id)|| dato.equals(nombre) || dato.equals(String.valueOf(precio))){
                 Servicios s = new Servicios();
                 s.setNombre(nombre);
                 s.setPrecio(precio);
@@ -112,7 +112,7 @@ public class Controlador {
             }
  
         }
-            model.addAttribute("servicios", lista);
+            model.addAttribute("Servicios", lista);
             return "ListarServicio";
         }
     

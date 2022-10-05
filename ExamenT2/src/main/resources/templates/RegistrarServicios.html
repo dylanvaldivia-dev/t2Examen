@@ -18,33 +18,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
          <link rel="icon" href="icono.png" >
         <link rel="stylesheet" type="text/css" href="estilos.css">
+        <script src="script.js"></script>  
     </head>
     <body>
-        <script>
-            function Guardarservicio()
-            {
-                event.preventDefault();
-                Swal.fire({
-                    title: ' Desea guardar los cambios?',
-                    width: 600,
-                    padding: '3em',
-                    color: '#716add',
-                    background: '#fff url(https://sweetalert2.github.io/#examplesimages/trees.png)',
-                    backdrop: `
-   rgba(0,0,123,0.4)
-   url("https://gist.github.com/brudnak/aba00c9a1c92d226f68e8ad8ba1e0a40/raw/e1e4a92f6072d15014f19aa8903d24a1ac0c41a4/nyan-cat.gif")
-   left top
-   no-repeat
- `
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        const formulario = document.getElementById("guardar");
-                        formulario.submit();
-                    }
-
-                })
-            }
-        </script>
         <div th:insert="navbar:: #nav"> </div>
         <div class="container">
             <hr>
