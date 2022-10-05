@@ -18,11 +18,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     <body onload="modal()">
         <!-- navar-normal-->
         <div th:insert="navbar:: #nav"> </div>
+
         <!-- Listar Servicios -->
         <div class="container">
             <div class="d-flex my-3">
+                <!--
                 <div>
                     <button type="button" class="btn btn-success btn-lg mt-1" data-bs-toggle="modal" data-bs-target="#modalAgregar">Agregar Servicio</button>
+                </div>
+                -->
+                <div>
+                    <a class="btn btn-success" th:href="@{/regS}">Servicios</a>
                 </div>
                 <div class="form-floating ms-auto">
                     <input type="email" class="form-control rounded-pill" id="floatingInput" placeholder="name@example.com">
@@ -36,8 +42,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         <th>Codigo</th>
                         <th>Nombres</th>
                         <th>Precio</th>
-                        <th>Editar</th>
-                        <th>Eliminar</th>
+                        <th>Editar |Eliminar</th>
                         <th>Registrar Atencion</th>
                     </tr>
 
@@ -45,16 +50,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         <td th:text="${status.count}"></td>
                         <td th:text="${servicio.nombre}"></td>
                         <td th:text="${servicio.precio}"></td>
-                        <td><button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalActualizar" 
-                            th:attr="data-bs-id=${status.count},data-bs-nombre=${servicio.nombre},data-bs-precio=${servicio.precio}">
-                            <i class="bi bi-pencil-fill"></i></button></td>
-                        <td><a onclick="return eliminarservicios(this)" th:href="@{/eliminarservicios(id=${status.count})}" class="btn btn-danger" type="button"><i class="bi bi-trash"></i></a></td>
-                        <td><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalRegistrarPaciente"><i class="bi bi-check2-square"></i></button></td>
+                        <td>
+                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalActualizar" 
+                                    th:attr="data-bs-id=${status.count},data-bs-nombre=${servicio.nombre},data-bs-precio=${servicio.precio}">
+                                <i class="bi bi-pencil-fill"></i></button>
+                            <a onclick="return eliminarservicios(this)" th:href="@{/eliminarservicios(id=${status.count})}" class="btn btn-danger" type="button"><i class="bi bi-trash"></i></a>
+                        </td>
+                        <td> 
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalRegistrarPaciente"><i class="bi bi-check2-square"></i></button>
+                        </td>
                     </tr>
                 </table>
             </div>
         </div>
-        <div th:insert="modals:: #modalAgregar"></div>
-        <div th:insert="modals:: #modalActualizar"></div>
     </body>
+   <!-- <div th:insert="modals:: #modalAgregar"></div>-->
+    <div th:insert="modals:: #modalActualizar"></div>
 </html>

@@ -1,3 +1,6 @@
+
+
+//sweeet alerts
 function Guardarservicio()
 {
     event.preventDefault();
@@ -22,6 +25,66 @@ function Guardarservicio()
     })
 }
 
+function eliminarservicios(opcion) {
+    event.preventDefault();
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!',
+
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: 'Deleted!',
+                text: 'Your file has been deleted.',
+                icon: 'success',
+                allowOutsideClick: false,
+                allwEscapeKey: false
+
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.href = opcion.href;
+                }
+            });
+
+        }
+    });
+}
+function ActualizarAlert() {
+    event.preventDefault();
+    Swal.fire({
+        title: 'Do you want to save the changes?',
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Save',
+        denyButtonText: `Don't save`,
+        allowOutsideClick: false,
+        allwEscapeKey: false
+    }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: 'Saved!',
+                text: '',
+                icon: 'success',
+                allowOutsideClick: false,
+                allwEscapeKey: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    const formulario = document.getElementById("actualizarservicios");
+                    formulario.submit();
+                }
+            })
+        } else if (result.isDenied) {
+            Swal.fire('Changes are not saved', '', 'info')
+        }
+    });
+}
+//modales 
 function modal()
 {
     const exampleModal = document.getElementById('modalActualizar')
@@ -33,16 +96,17 @@ function modal()
         const nombres = button.getAttribute('data-bs-nombre');
         const precio = button.getAttribute('data-bs-precio');
 
-        const campoId = document.getElementById('id'); // nombres de los id en el campo del modal
+        const campoId = document.getElementById('id');
         const campoNombres = document.getElementById('nom');
         const campoPrecio = document.getElementById('pre');
 
         campoId.value = id;
         campoNombres.value = nombres;
         campoPrecio.value = precio;
-    })
+    });
 }
 
+/*
 function modalAtencion()
 {
     const exampleModal = document.getElementById('modalActualizar')
@@ -61,8 +125,8 @@ function modalAtencion()
         campoId.value = id;
         campoNombres.value = nombres;
         campoPrecio.value = precio;
-    })
+    });
 }
-
+*/
 
 

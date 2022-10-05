@@ -46,7 +46,7 @@ public class Controlador {
             Model model) {
         Servicios s = new Servicios();
         s.setNombre(nom);
-        s.setPrecio(pre);
+        s.setPrecio(Integer.parseInt(pre));
         listaservicio.add(s);
 
         model.addAttribute("Servicios", listaservicio);
@@ -78,7 +78,7 @@ public class Controlador {
 
             if (i == id - 1) {
                 listaservicio.get(i).setNombre(nom);
-                listaservicio.get(i).setPrecio(pre);
+                listaservicio.get(i).setPrecio(Integer.parseInt(pre));
                
             }
         }
@@ -92,7 +92,7 @@ public class Controlador {
         for (int i = 0; i < listaservicio.size(); i++) {
             String id = String.valueOf(i + 1);
             String nombre = listaservicio.get(i).getNombre();
-            String precio = listaservicio.get(i).getPrecio();
+            int precio = listaservicio.get(i).getPrecio();
  
             if(dato.equals(id)|| dato.equals(nombre) ){
                 Servicios s = new Servicios();
@@ -105,7 +105,7 @@ public class Controlador {
             {
                 Servicios s = new Servicios();
                 s.setNombre("");
-                s.setPrecio("");
+                s.setPrecio(0);
                 
    
                 lista.add(s);
@@ -125,21 +125,23 @@ public class Controlador {
 
         return "ListarAtencion"; 
     }
+    /*
         @PostMapping("/actualizaratencion") // http://localhost/actualizar
     public String ActualizarAtencion(@RequestParam("id") int id,
             @RequestParam("nom") String nom,
             @RequestParam("pre") String pre,
             Model model) {
-        for (int i = 0; i < listaservicio.size(); i++) {
+        for (int i = 0; i < listaatencion.size(); i++) {
 
             if (i == id - 1) {
-                listaservicio.get(i).setNombre(nom);
-                listaservicio.get(i).setPrecio(pre);
+                listaatencion.get(i).setNombre(nom);
+                listaatencion.get(i).setPrecio(pre);
                
             }
         }
         return Listadodeservicios(model);
     }
+    */
     /*REPORTES*/
  
 }
