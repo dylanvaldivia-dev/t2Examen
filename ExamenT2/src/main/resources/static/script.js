@@ -111,10 +111,11 @@ function modal()
 
 function modalAtencion()
 {
-    const modalAgregarAtencion = document.getElementById('modalAgregarAtencion')
+    const modalAgregarAtencion = document.getElementById('modalAgregarAtencion');
     modalAgregarAtencion.addEventListener('show.bs.modal', event => {
 
-        const button = event.relatedTarget
+        const button = event.relatedTarget;
+        
         const servicio = button.getAttribute('data-bs-servicio');
         const precio = button.getAttribute('data-bs-prec');
         const igv = precio*.18;
@@ -123,8 +124,8 @@ function modalAtencion()
         const campoMascota = document.getElementById('masc'); // nombres de los id en el campo del modal
         const campoServicio = document.getElementById('ser');
         const campoPrecio = document.getElementById('prec2');
-        const campoigv=document.getElementById(igv);
-        const campototal=document.getElementById(total);
+        const campoigv=document.getElementById('igv');
+        const campototal=document.getElementById('total');
         
         campoServicio.value = servicio;
         campoPrecio.value = precio;
@@ -133,5 +134,8 @@ function modalAtencion()
     });
 }
 
-
+function cargarFunciones(){
+   modalAtencion(); 
+   modal();
+}
 
