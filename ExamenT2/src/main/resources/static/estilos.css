@@ -1,0 +1,35 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 4 oct. 2022, 11:21:15
+    Author     : mike
+*/
+
+body{
+  /*Ubicación de la imagen*/ 
+background-position: center center;
+background-image: url("https://images.pexels.com/photos/1350593/pexels-photo-1350593.jpeg?cs=srgb&dl=pexels-pranidchakan-boonrom-1350593.jpg&fm=jpg");
+
+/*Para dejar la imagen de fondo centrada, vertical y horizontalmente*/
+
+
+
+/*Para que la imagen de fondo no se repita */
+
+background-repeat: no-repeat;
+
+/*La imagen se fija en la ventana de visualización para que la altura de la imagen no supere a la del contenido */
+
+background-attachment: fixed;
+
+/*La imagen de fondo se reescala automáticamente con el cambio del ancho de ventana del navegador*/
+
+background-size: cover;
+
+/*Se muestra un color de fondo mientras se está cargando la imagen
+de fondo o si hay problemas para cargarla */
+background-color:black;
+}
+
