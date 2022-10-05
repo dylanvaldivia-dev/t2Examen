@@ -46,5 +46,29 @@ function modal()
     })
 }
 
+function modalAtencion()
+{
+    const exampleModal = document.getElementById('modalActualizar')
+    exampleModal.addEventListener('show.bs.modal', event => {
+
+        const button = event.relatedTarget
+
+        const id = button.getAttribute('data-bs-id');
+        const nombres = button.getAttribute('data-bs-nombre');
+        const precio = button.getAttribute('data-bs-precio');
+
+        const campoId = document.getElementById('id'); // nombres de los id en el campo del modal
+        const campoNombres = document.getElementById('nom');
+        const campoPrecio = document.getElementById('pre');
+
+        campoId.value = id;
+        campoNombres.value = nombres;
+        campoPrecio.value = precio;
+
+        // modalTitle.textContent = New message to ${recipient}
+        // modalBodyInput.value = recipient
+    })
+}
+
 
 

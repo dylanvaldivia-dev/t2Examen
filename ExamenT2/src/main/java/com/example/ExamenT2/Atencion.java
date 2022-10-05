@@ -12,11 +12,11 @@ import lombok.Data;
  */
 @Data
 public class Atencion {
-    public String nombreMascota;
-    public String servicio;
-    public String precio;
-    public String igv;
-    public String total;
+    public String nombreMascota = "pedro";
+    public String servicio = "lavado de pelo";
+    public String precio = "12.2";
+    public String igv = "18";
+    public String total = "14";
     
     
 }

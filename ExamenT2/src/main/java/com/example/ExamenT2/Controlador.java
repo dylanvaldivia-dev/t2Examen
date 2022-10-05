@@ -125,6 +125,21 @@ public class Controlador {
 
         return "ListarAtencion"; 
     }
+        @PostMapping("/actualizaratencion") // http://localhost/actualizar
+    public String ActualizarAtencion(@RequestParam("id") int id,
+            @RequestParam("nom") String nom,
+            @RequestParam("pre") String pre,
+            Model model) {
+        for (int i = 0; i < listaservicio.size(); i++) {
+
+            if (i == id - 1) {
+                listaservicio.get(i).setNombre(nom);
+                listaservicio.get(i).setPrecio(Double.parseDouble(pre));
+               
+            }
+        }
+        return Listadodeservicios(model);
+    }
     /*REPORTES*/
  
 }
