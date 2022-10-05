@@ -1,0 +1,67 @@
+<div class="modal fade" id="modalAgregar" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-light">
+            <form action="registrarservicio" method="POST" id="guardar">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold text-uppercase">Registrar servicio</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <input type="hidden" id="id" name="id">
+                    <div class="col-md mt-2">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" name="nom" placeholder="nombre" required>
+                            <label for="floatingInputGrid"><i class="bi bi-card-list"></i> Nombre</label>
+                        </div>
+                    </div>
+                    <div class="col-md mt-2">
+                        <div class="form-floating">
+                            <input type="number" class="form-control" name="pre" placeholder="precio" required>
+                            <label for="floatingInputGrid"><i class="bi bi-currency-dollar"></i> Precio</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success fw-bold text-uppercase">Registrar</button>
+                    <button type="button" class="btn btn-danger fw-bold text-uppercase" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalActualizar" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-light">
+            <form action="actualizarservicios" method="POST" id="actualizarservicios">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold text-uppercase">Actualizar servicio</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <input type="hidden" id="id" name="id">
+                    <div class="col-md mt-2">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="nom" name="nom" placeholder="nombre" required>
+                            <label for="floatingInputGrid"><i class="bi bi-card-list"></i> Nombre</label>
+                        </div>
+                    </div>
+                    <div class="col-md mt-2">
+                        <div class="form-floating">
+                            <input type="number" class="form-control" id="pre" name="pre" placeholder="precio" required>
+                            <label for="floatingInputGrid"><i class="bi bi-currency-dollar"></i> Precio</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-warning fw-bold text-uppercase">Actualizar</button>
+                    <button type="button" class="btn btn-danger fw-bold text-uppercase" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

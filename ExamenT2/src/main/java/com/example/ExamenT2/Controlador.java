@@ -30,7 +30,7 @@ public class Controlador {
         return "RegistrarServicios"; 
     } 
     
-     @GetMapping("/listadodeservicios")
+     @GetMapping("/servicios")
     public String Listadodeservicios(Model model) {
         model.addAttribute("Servicios", listaservicio);
 
