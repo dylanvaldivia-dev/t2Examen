@@ -24,12 +24,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             <div class="d-flex my-3">
                 <!--
                 <div>
-                    <button type="button" class="btn btn-success btn-lg mt-1" data-bs-toggle="modal" data-bs-target="#modalAgregar">Agregar Servicio</button>
+                    <button type="button" class="btn btn-success btn-lg mt-1" data-bs-toggle data-bs-target="#modalAgregar">Agregar Servicio</button>
                 </div>
                 -->
                 <div>
                     <a class="btn btn-success" th:href="@{/regS}">Servicios</a>
                 </div>
+                
                 <div class="form-floating ms-auto">
                     <input type="email" class="form-control rounded-pill" id="floatingInput" placeholder="name@example.com">
                     <label for="floatingInput">Buscar</label>
@@ -64,6 +65,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             </div>
         </div>
     </body>
-   <!-- <div th:insert="modals:: #modalAgregar"></div>-->
+  <!--  <div th:insert="modals:: #modalAgregar"></div>-->
     <div th:insert="modals:: #modalActualizar"></div>
 </html>
