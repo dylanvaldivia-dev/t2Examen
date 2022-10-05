@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class Controlador {
    ArrayList<Servicios> listaservicio = new ArrayList();
-
+   ArrayList<Servicios> listaatencion = new ArrayList();
    /* PAGINA PRINCIPAL*/
     @GetMapping("/") 
     public String Formulario() {
@@ -82,7 +82,6 @@ public class Controlador {
                
             }
         }
-
         return Listadodeservicios(model);
     }
 
@@ -120,7 +119,12 @@ public class Controlador {
 
     
     /*CRUD ATENCION*/
-    
+    @GetMapping("/atencion")
+    public String ListaAtencion(Model model) {
+        model.addAttribute("Atenciones", listaatencion);
+
+        return "ListarAtencion"; 
+    }
     /*REPORTES*/
  
 }
