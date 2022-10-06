@@ -172,7 +172,7 @@ function modalActualizarAtencion()
 
         const button = event.relatedTarget;
 
-        const idatactual = button.getAttribute('data-bs-idatactual');
+        const idaactual = button.getAttribute('data-bs-idactual');
         const mascotaactual = button.getAttribute('data-bs-mascotaactual');
         const servicioactual = button.getAttribute('data-bs-servicioactual');
         const precioactual = button.getAttribute('data-bs-precioactual');
@@ -181,17 +181,17 @@ function modalActualizarAtencion()
 
 
 
-        const campoidatactual = document.getElementById('idatencion');
+        const campoidactual = document.getElementById('idatencion');
         const campomascotaactual = document.getElementById('actualmascota');
         const camposervicioactual = document.getElementById('actualservicio');
         const campoprecioactual = document.getElementById('actualprecio');
         const campoigvactual = document.getElementById('actualigv');
         const campototalactual = document.getElementById('actualtotal');
 
-        campoidatactual.value = idatactual;
+        campoidactual.value = idaactual;
         campomascotaactual.value = mascotaactual;
         camposervicioactual.value = servicioactual;
-        campoprecioactual.value=campoprecioactual;
+        campoprecioactual.value=precioactual;
         campoigvactual.value=igvactual;
         campototalactual.value=totalactual;
 
