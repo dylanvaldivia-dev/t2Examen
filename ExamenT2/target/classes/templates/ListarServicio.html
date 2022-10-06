@@ -22,18 +22,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <!-- Listar Servicios -->
         <div class="container">
             <div class="d-flex my-3">
-                
+
                 <div>
                     <button type="button" class="btn btn-success btn-lg mt-1" data-bs-toggle="modal" data-bs-target="#modalAgregar">Agregar Servicio</button>
                 </div>
-                
-                
+
+
                 <form class="form-floating ms-auto" role="buscar" action="buscarservicios" method="POST">
                     <input class="form-control rounded-pill" type="search"  placeholder="nombre o precio"  id="dato" name="dato" required="required">
                 </form>
-                
-         
-      
+
+
+
             </div>
             <div class="table-responsive">
                 <table class="table table-striped table-bordered border-dark">
@@ -57,17 +57,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                             <a onclick="return eliminarservicios(this)" th:href="@{/eliminarservicios(id=${status.count})}" class="btn btn-danger" type="button"><i class="bi bi-trash"></i></a>
                         </td>
                         <td> 
-                           <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAgregarAtencion" 
-                                   ><i class="bi bi-check2-square"></i></button>
-                                    <!-- th:attr="data-bs-servicio=${servicio.nombre},data-bs-prec={servicio.precio}"-->
-                           
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAgregarAtencion" 
+                                   th:attr="data-bs-servicio= ${servicio.nombre}, data-bs-precio=${servicio.precio}" ><i class="bi bi-check2-square"></i></button>
+                            
+
                         </td>
                     </tr>
                 </table>
             </div>
         </div>
     </body>
- <div th:insert="modals:: #modalAgregar"></div> 
+    <div th:insert="modals:: #modalAgregar"></div> 
     <div th:insert="modals:: #modalActualizar"></div>
     <div th:insert="modals :: #modalAgregarAtencion"></div>
 </html>

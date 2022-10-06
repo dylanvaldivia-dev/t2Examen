@@ -118,10 +118,10 @@ function ActualizarAlert() {
 //modales 
 function modal()
 {
-    const exampleModal = document.getElementById('modalActualizar')
+    const exampleModal = document.getElementById('modalActualizar');
     exampleModal.addEventListener('show.bs.modal', event => {
 
-        const button = event.relatedTarget
+        const button = event.relatedTarget;
 
         const id = button.getAttribute('data-bs-id');
         const nombres = button.getAttribute('data-bs-nombre');
@@ -146,25 +146,62 @@ function modalAtencion()
         const button = event.relatedTarget;
 
         const servicio = button.getAttribute('data-bs-servicio');
-        const precio = 12;//button.getAttribute('data-bs-prec');
-        const igv = precio * .18;
-        const total = precio + igv;
+        const precio = button.getAttribute('data-bs-precio');
+        const igv = (parseFloat(precio) * 0.18);
+        const total = (parseFloat(precio) + igv);
 
-        const campoMascota = document.getElementById('masc'); // nombres de los id en el campo del modal
-        const campoServicio = document.getElementById('ser');
-        const campoPrecio = document.getElementById('prec2');
+
+        const campoServicio = document.getElementById('servicio');
+        const campoPrecio = document.getElementById('precio');
         const campoigv = document.getElementById('igv');
         const campototal = document.getElementById('total');
 
         campoServicio.value = servicio;
-        //campoPrecio.value = precio;
-        campoigv = igv;
-        campototal = total;
+        campoPrecio.value = precio;
+        campoigv.value = igv;
+        campototal.value = total.toFixed(2);
+
+
+    });
+}
+
+function modalActualizarAtencion()
+{
+    const modalActualizarAtencion = document.getElementById('modalActualizarAtencion');
+    modalActualizarAtencion.addEventListener('show.bs.modal', event => {
+
+        const button = event.relatedTarget;
+
+        const idatactual = button.getAttribute('data-bs-idatactual');
+        const mascotaactual = button.getAttribute('data-bs-mascotaactual');
+        const servicioactual = button.getAttribute('data-bs-servicioactual');
+        const precioactual = button.getAttribute('data-bs-precioactual');
+        const igvactual = button.getAttribute('data-bs-igvactual');
+        const totalactual = button.getAttribute('data-bs-totalactual');
+
+
+
+        const campoidatactual = document.getElementById('idatencion');
+        const campomascotaactual = document.getElementById('actualmascota');
+        const camposervicioactual = document.getElementById('actualservicio');
+        const campoprecioactual = document.getElementById('actualprecio');
+        const campoigvactual = document.getElementById('actualigv');
+        const campototalactual = document.getElementById('actualtotal');
+
+        campoidatactual.value = idatactual;
+        campomascotaactual.value = mascotaactual;
+        camposervicioactual.value = servicioactual;
+        campoprecioactual.value=campoprecioactual;
+        campoigvactual.value=igvactual;
+        campototalactual.value=totalactual;
+
     });
 }
 
 function cargarFunciones() {
     modalAtencion();
     modal();
+    modalActualizarAtencion();
+    console.log("se cargaron las fuciones");
 }
 

@@ -13,23 +13,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>       
         <link rel="icon" href="icono.png" >
-        <script src="script.js"></script>        
+        <script src="script.js"></script>     
     </head>
-    <body onload="modal()">
+    <body onload="cargarFunciones()">
         <!-- navar-normal-->
         <div th:insert="navbar:: #nav"> </div>
         <!-- Listar Servicios -->
         <div class="container">
             <div class="d-flex my-3">
-                <!--
-                <div>
-                    <button type="button" class="btn btn-success btn-lg mt-1" data-bs-toggle="modal" data-bs-target="#modalAgregarAtencion">Agregar Servicio</button>
-                </div>
+
 
                 <form class="form-floating ms-auto" role="buscar" action="buscarservicios" method="POST">
                     <input class="form-control rounded-pill" type="search"  placeholder="nombre o precio"  id="dato" name="dato" required="required">
                 </form>
-                -->
+
 
             </div>
             <div class="table-responsive">
@@ -53,22 +50,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         <td th:text="${atencion.igv}"></td>
                         <td th:text="${atencion.total}"></td>
                         <td>
-                            
-                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalActualizar" 
-                                    th:attr="data-bs-id=${status.count},data-bs-nombreMascota=${atencion.nombreMascota},data-bs-servicio=${atencion.servicio},
-                                    data-bs-precio=${atencion.precio},data-bs-igv=${atencion.igv}, data-bs-total=${atencion.total}"> <i class="bi bi-pencil-fill"> </i>
+
+                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalActualizarAtencion" 
+                                    th:attr="data-bs-idatactual=${status.count},data-bs-mascotaactual=${atencion.nombreMascota},data-bs-servicioactual=${atencion.servicio},
+                                    data-bs-precioactual=${atencion.precio},data-bs-igvactual=${atencion.igv}, data-bs-totalactual=${atencion.total}"> <i class="bi bi-pencil-fill"> </i>
                             </button>
-                           
+
                             <a onclick="return eliminaratenciones(this)" th:href="@{/eliminarAtencion(ids=${status.count})}" class="btn btn-danger" type="button"><i class="bi bi-trash"></i></a>
                         </td>
-                   
-                    </button>
-                    </td>
+
+                        </button>
+                        </td>
                     </tr>
                 </table>
             </div>
         </div>
-        <!-- <div th:insert="modals:: #modalAgregar"></div>-->
+        <div th:insert="modals:: #modalActualizarAtencion"></div>
+
         <!-- <div th:insert="modals:: #modalActualizar"></div>-->
     </body>
 </html>

@@ -125,23 +125,23 @@ public class Controlador {
     
     @PostMapping("/registraratencion") 
     public String RegistrarAtencion(
-            @RequestParam("masc") String masc,
-            @RequestParam("ser") String ser,
-            @RequestParam("prec2") String prec2,
+            @RequestParam("mascota") String mascota,
+            @RequestParam("servicio") String servicio,
+            @RequestParam("precio") String precio,
             @RequestParam("igv") String igv,
             @RequestParam("total") String total,
             Model modelo) {
         Atencion a = new Atencion();
-        a.setNombreMascota(masc);
-        a.setServicio(ser);
-        a.setPrecio(Double.parseDouble(prec2));
+        a.setNombreMascota(mascota);
+        a.setServicio(servicio);
+        a.setPrecio(Double.parseDouble(precio));
         a.setIgv(Double.parseDouble(igv));
         a.setTotal(Double.parseDouble(total));
         
         listaatencion.add(a);
 
-        modelo.addAttribute("Servicios", listaatencion);
-
+        modelo.addAttribute("Atenciones", listaatencion);
+         ListaAtencion(modelo);
         return "ListarAtencion"; 
     }
    
