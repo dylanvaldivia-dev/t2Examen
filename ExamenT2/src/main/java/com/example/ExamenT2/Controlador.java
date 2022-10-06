@@ -157,6 +157,57 @@ public class Controlador {
 
         return ListaAtencion(modelo);
     }
+       @PostMapping("/actualizaratencion") // http://localhost/actualizar
+    public String ActualizarAtencion(
+            @RequestParam("idatencion") int idAtencion,
+            @RequestParam("actualmascota") String nom,
+            Model modelo) {
+        for (int i = 0; i < listaatencion.size(); i++) {
+
+            if (i == idAtencion - 1) {
+                listaatencion.get(i).setNombreMascota(nom);
+            }
+        }
+        return ListaAtencion(modelo);
+    }
+    
+     @PostMapping("/buscarAtencion") //http://localhost/buscar
+    public String BuscarAtencion(@RequestParam("dato") String dato, Model model) {
+        ArrayList<Atencion> lista2 = new ArrayList();
+
+        for (int i = 0; i < listaatencion.size(); i++) {
+            String id = String.valueOf(i + 1);
+            String nombreMascota = listaatencion.get(i).getNombreMascota();
+            String servicio = listaatencion.get(i).getServicio();
+            Double precio = listaatencion.get(i).getPrecio();
+            Double igv = listaatencion.get(i).getIgv();
+            Double total = listaatencion.get(i).getTotal();
+ 
+            if(dato.equals(id)|| dato.equals(nombreMascota) || dato.equals(servicio)){
+                Atencion s = new Atencion();
+                s.setNombreMascota(nombreMascota);
+                s.setServicio(servicio);
+                s.setPrecio(precio);
+                s.setIgv(igv);
+                s.setTotal(total);                    
+
+                lista2.add(s);
+            }else
+            {
+                Atencion s = new Atencion();
+                s.setNombreMascota("");
+                s.setServicio("");
+                s.setPrecio(0.0);
+                s.setIgv(0.0);
+                s.setTotal(0.0);                 
+   
+                lista2.add(s);
+            }
+ 
+        }
+            model.addAttribute("Atenciones", lista2);
+            return "ListarAtencion";
+        }
     /*REPORTES*/
  
 }

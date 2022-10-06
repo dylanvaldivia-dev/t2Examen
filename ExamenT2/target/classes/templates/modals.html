@@ -126,7 +126,7 @@
 <div class="modal fade" id="modalActualizarAtencion" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content bg-light">
-            <form action="registraratencion" method="POST" id="ActualizaAtencion">
+            <form action="actualizaratencion" method="POST" id="ActualizaAtencion">
                 <div class="modal-header">
                     <h5 class="modal-title fw-bold text-uppercase">Actualiza Atencion</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> 
@@ -167,7 +167,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-warning fw-bold text-uppercase">Actualizar</button>
+                    <button onclick="return ActualizarAttAlert()" type="submit" class="btn btn-warning fw-bold text-uppercase">Actualizar</button>
                 </div>
             </form>
         </div>

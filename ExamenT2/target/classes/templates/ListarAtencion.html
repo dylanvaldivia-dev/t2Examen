@@ -15,7 +15,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <link rel="icon" href="icono.png" >
         <script src="script.js"></script>     
     </head>
-    <body onload="cargarFunciones()">
+    <body onload="modalActualizarAtencion()">
         <!-- navar-normal-->
         <div th:insert="navbar:: #nav"> </div>
         <!-- Listar Servicios -->
@@ -23,8 +23,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             <div class="d-flex my-3">
 
 
-                <form class="form-floating ms-auto" role="buscar" action="buscarservicios" method="POST">
-                    <input class="form-control rounded-pill" type="search"  placeholder="nombre o precio"  id="dato" name="dato" required="required">
+                <form class="form-floating ms-auto" role="buscar" action="buscarAtencion" method="POST">
+                    <input class="form-control rounded-pill" type="search"    id="dato" name="dato" required="required">
                 </form>
 
 

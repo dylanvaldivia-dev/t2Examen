@@ -115,6 +115,36 @@ function ActualizarAlert() {
         }
     });
 }
+function ActualizarAttAlert() {
+    event.preventDefault();
+    Swal.fire({
+        title: 'Do you want to save the changes?',
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Save',
+        denyButtonText: `Don't save`,
+        allowOutsideClick: false,
+        allwEscapeKey: false
+    }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: 'Saved!',
+                text: '',
+                icon: 'success',
+                allowOutsideClick: false,
+                allwEscapeKey: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    const formulario = document.getElementById("ActualizaAtencion");
+                    formulario.submit();
+                }
+            })
+        } else if (result.isDenied) {
+            Swal.fire('Changes are not saved', '', 'info')
+        }
+    });
+}
 //modales 
 function modal()
 {
@@ -201,7 +231,6 @@ function modalActualizarAtencion()
 function cargarFunciones() {
     modalAtencion();
     modal();
-    modalActualizarAtencion();
     console.log("se cargaron las fuciones");
 }
 
