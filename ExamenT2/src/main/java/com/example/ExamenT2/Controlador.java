@@ -24,14 +24,11 @@ public class Controlador {
     public String Formulario() {
         return "index"; 
     } 
-    
     @GetMapping("/reporte") 
     public String Reporte() {
         return "reporte"; 
     } 
-    /*CRUD SERVICIOS*/
-    
-    
+    /*CRUD SERVICIOS*/      
      @GetMapping("/servicios")
     public String Listadodeservicios(Model model) {
         model.addAttribute("Servicios", listaservicio);
@@ -52,9 +49,7 @@ public class Controlador {
         model.addAttribute("Servicios", listaservicio);
 
         return "ListarServicio"; 
-    }
-
-   
+    }   
 
     @GetMapping("/eliminarservicios")
     public String Eliminarservicios(@RequestParam("id") int id, Model model) {
@@ -70,7 +65,8 @@ public class Controlador {
     }
 
     @PostMapping("/actualizarservicios") // http://localhost/actualizar
-    public String Actualizarservicios(@RequestParam("id1") int id,
+    public String Actualizarservicios(
+            @RequestParam("id1") int id,
             @RequestParam("nom1") String nom,
             @RequestParam("pre1") String pre,
             Model model) {
@@ -116,7 +112,6 @@ public class Controlador {
             return "ListarServicio";
         }
     
-
     
     /*CRUD ATENCION*/
     @GetMapping("/atencion")
@@ -147,20 +142,7 @@ public class Controlador {
          ListaAtencion(modelo);
         return "ListarAtencion"; 
     }
-   
-    @GetMapping("/eliminarAtencion")
-    public String EliminarAtencion(@RequestParam("ids") int id, Model modelo) {
-        for (int i = 0; i < listaatencion.size(); i++) {
-
-            if (i == id - 1) {
-
-                listaatencion.remove(i);
-            }
-        }
-
-        return ListaAtencion(modelo);
-    }
-       @PostMapping("/actualizaratencion") // http://localhost/actualizar
+    @PostMapping("/actualizaratencion") // http://localhost/actualizar
     public String ActualizarAtencion(
             @RequestParam("idatencion") int idAtencion,
             @RequestParam("actualmascota") String nom,
@@ -173,8 +155,18 @@ public class Controlador {
         }
         return ListaAtencion(modelo);
     }
-    
-     @PostMapping("/buscarAtencion") //http://localhost/buscar
+    @GetMapping("/eliminarAtencion")
+    public String EliminarAtencion(@RequestParam("ids") int id, Model modelo) {
+        for (int i = 0; i < listaatencion.size(); i++) {
+
+            if (i == id - 1) {
+
+                listaatencion.remove(i);
+            }
+        }
+        return ListaAtencion(modelo);
+    }
+    @PostMapping("/buscarAtencion") //http://localhost/buscar
     public String BuscarAtencion(@RequestParam("dato") String dato, Model model) {
         ArrayList<Atencion> lista2 = new ArrayList();
 
@@ -193,7 +185,7 @@ public class Controlador {
                 s.setPrecio(precio);
                 s.setIgv(igv);
                 s.setTotal(total);                    
-
+                
                 lista2.add(s);
             }else
             {
