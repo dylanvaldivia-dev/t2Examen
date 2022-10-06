@@ -30,19 +30,20 @@ function GuardarSwet(opcion)
 function eliminarservicios(opcion) {
     event.preventDefault();
     Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
+        title: 'Estas seguro de eliminar el servicio?',
+        text: "No podra ser revertido!",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Eliminar!'
 
     }).then((result) => {
         if (result.isConfirmed) {
             Swal.fire({
-                title: 'Deleted!',
-                text: 'Your file has been deleted.',
+                title: 'Eliminado!',
+                text: 'Tu servicio ha sido eliminado.',
                 icon: 'success',
                 allowOutsideClick: false,
                 allwEscapeKey: false
@@ -59,19 +60,20 @@ function eliminarservicios(opcion) {
 function eliminaratenciones(opcion) {
     event.preventDefault();
     Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
+        title: 'Estas seguro de eliminar la atencion?',
+        text: "No podra ser revertido!",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Eliminar!'
 
     }).then((result) => {
         if (result.isConfirmed) {
             Swal.fire({
-                title: 'Deleted!',
-                text: 'Your file has been deleted.',
+                title: 'Eliminado!',
+                text: 'Tu atencion ha sido eliminada',
                 icon: 'success',
                 allowOutsideClick: false,
                 allwEscapeKey: false
@@ -88,18 +90,18 @@ function eliminaratenciones(opcion) {
 function ActualizarAlert() {
     event.preventDefault();
     Swal.fire({
-        title: 'Do you want to save the changes?',
+        title: 'Deseas actualizar?',
         showDenyButton: true,
         showCancelButton: true,
         confirmButtonText: 'Save',
-        denyButtonText: `Don't save`,
+        denyButtonText: `No guardar`,
         allowOutsideClick: false,
         allwEscapeKey: false
     }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
             Swal.fire({
-                title: 'Saved!',
+                title: 'Guardado!',
                 text: '',
                 icon: 'success',
                 allowOutsideClick: false,
@@ -111,7 +113,7 @@ function ActualizarAlert() {
                 }
             })
         } else if (result.isDenied) {
-            Swal.fire('Changes are not saved', '', 'info')
+            Swal.fire('Los cambios no se han guardado', '', 'info')
         }
     });
 }
