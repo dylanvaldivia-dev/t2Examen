@@ -25,7 +25,10 @@ public class Controlador {
         return "index"; 
     } 
     
- 
+    @GetMapping("/reporte") 
+    public String Reporte() {
+        return "reporte"; 
+    } 
     /*CRUD SERVICIOS*/
     
     
