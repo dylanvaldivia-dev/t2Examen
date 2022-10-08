@@ -17,23 +17,26 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Controller
 public class Controlador {
-   ArrayList<Servicios> listaservicio = new ArrayList();
-   ArrayList<Atencion> listaatencion = new ArrayList();
-   ArrayList<Reportes> listarreporte = new ArrayList();
-   /* PAGINA PRINCIPAL*/
-    @GetMapping("/") 
+
+    ArrayList<Servicios> listaservicio = new ArrayList();
+    ArrayList<Atencion> listaatencion = new ArrayList();
+    ArrayList<Reportes> listarreporte = new ArrayList();
+
+    /* PAGINA PRINCIPAL*/
+    @GetMapping("/")
     public String Formulario() {
-        return "index"; 
-    } 
-    /*CRUD SERVICIOS*/      
-     @GetMapping("/servicios")
+        return "index";
+    }
+
+    /*CRUD SERVICIOS*/
+    @GetMapping("/servicios")
     public String Listadodeservicios(Model model) {
         model.addAttribute("Servicios", listaservicio);
 
-        return "ListarServicio"; 
+        return "ListarServicio";
     }
-    
-    @PostMapping("/registrarservicio") 
+
+    @PostMapping("/registrarservicio")
     public String Registrarservicio(
             @RequestParam("nom") String nom,
             @RequestParam("pre") String pre,
@@ -45,8 +48,8 @@ public class Controlador {
 
         model.addAttribute("Servicios", listaservicio);
 
-        return "ListarServicio"; 
-    }   
+        return "ListarServicio";
+    }
 
     @GetMapping("/eliminarservicios")
     public String Eliminarservicios(@RequestParam("id") int id, Model model) {
@@ -72,7 +75,7 @@ public class Controlador {
             if (i == id - 1) {
                 listaservicio.get(i).setNombre(nom);
                 listaservicio.get(i).setPrecio(Double.parseDouble(pre));
-               
+
             }
         }
         return Listadodeservicios(model);
@@ -86,39 +89,35 @@ public class Controlador {
             String id = String.valueOf(i + 1);
             String nombre = listaservicio.get(i).getNombre();
             Double precio = listaservicio.get(i).getPrecio();
- 
-            if(dato.equals(id)|| dato.equals(nombre) || dato.equals(String.valueOf(precio))){
+
+            if (dato.equals(id) || dato.equals(nombre) || dato.equals(String.valueOf(precio))) {
                 Servicios s = new Servicios();
                 s.setNombre(nombre);
                 s.setPrecio(precio);
-      
 
                 lista.add(s);
-            }else
-            {
+            } else {
                 Servicios s = new Servicios();
                 s.setNombre("");
                 s.setPrecio(0.0);
-                
-   
+
                 lista.add(s);
             }
- 
+
         }
-            model.addAttribute("Servicios", lista);
-            return "ListarServicio";
-        }
-    
-    
+        model.addAttribute("Servicios", lista);
+        return "ListarServicio";
+    }
+
     /*CRUD ATENCION*/
     @GetMapping("/atencion")
     public String ListaAtencion(Model modelo) {
         modelo.addAttribute("Atenciones", listaatencion);
 
-        return "ListarAtencion"; 
+        return "ListarAtencion";
     }
-    
-    @PostMapping("/registraratencion") 
+
+    @PostMapping("/registraratencion")
     public String RegistrarAtencion(
             @RequestParam("mascota") String mascota,
             @RequestParam("servicio") String servicio,
@@ -132,13 +131,14 @@ public class Controlador {
         a.setPrecio(Double.parseDouble(precio));
         a.setIgv(Double.parseDouble(igv));
         a.setTotal(Double.parseDouble(total));
-        
+
         listaatencion.add(a);
 
         modelo.addAttribute("Atenciones", listaatencion);
-         ListaAtencion(modelo);
-        return "ListarAtencion"; 
+        ListaAtencion(modelo);
+        return "ListarAtencion";
     }
+
     @PostMapping("/actualizaratencion") // http://localhost/actualizar
     public String ActualizarAtencion(
             @RequestParam("idatencion") int idAtencion,
@@ -152,6 +152,7 @@ public class Controlador {
         }
         return ListaAtencion(modelo);
     }
+
     @GetMapping("/eliminarAtencion")
     public String EliminarAtencion(@RequestParam("ids") int id, Model modelo) {
         for (int i = 0; i < listaatencion.size(); i++) {
@@ -163,6 +164,7 @@ public class Controlador {
         }
         return ListaAtencion(modelo);
     }
+
     @PostMapping("/buscarAtencion") //http://localhost/buscar
     public String BuscarAtencion(@RequestParam("dato") String dato, Model model) {
         ArrayList<Atencion> lista2 = new ArrayList();
@@ -174,44 +176,42 @@ public class Controlador {
             Double precio = listaatencion.get(i).getPrecio();
             Double igv = listaatencion.get(i).getIgv();
             Double total = listaatencion.get(i).getTotal();
- 
-            if(dato.equals(id)|| dato.equals(nombreMascota) || dato.equals(servicio)){
+
+            if (dato.equals(id) || dato.equals(nombreMascota) || dato.equals(servicio)) {
                 Atencion s = new Atencion();
                 s.setNombreMascota(nombreMascota);
                 s.setServicio(servicio);
                 s.setPrecio(precio);
                 s.setIgv(igv);
-                s.setTotal(total);                    
-                
+                s.setTotal(total);
+
                 lista2.add(s);
-            }else
-            {
+            } else {
                 Atencion s = new Atencion();
                 s.setNombreMascota("");
                 s.setServicio("");
                 s.setPrecio(0.0);
                 s.setIgv(0.0);
-                s.setTotal(0.0);                 
-   
+                s.setTotal(0.0);
+
                 lista2.add(s);
             }
- 
+
         }
-            model.addAttribute("Atenciones", lista2);
-            return "ListarAtencion";
-        }
+        model.addAttribute("Atenciones", lista2);
+        return "ListarAtencion";
+    }
+
     /*REPORTES*/
-    
+
     @GetMapping("/reporte")
-    public String ListarReporte(Model model)
-    {
-        int acumulador=0;
-        double sumador=0;
+    public String ListarReporte(Model model) {
+        int acumulador = 0;
+        double sumador = 0;
         ArrayList<Reportes> lista2 = new ArrayList();
-        for (int i = 0; i < listaatencion.size(); i++)
-        {
-            acumulador=acumulador+1;
-            sumador+=listaatencion.get(i).getTotal();
+        for (int i = 0; i < listaatencion.size(); i++) {
+            acumulador = acumulador + 1;
+            sumador += listaatencion.get(i).getTotal();
         }
         Reportes r = new Reportes();
         r.setCantidad(acumulador);
@@ -220,5 +220,5 @@ public class Controlador {
         model.addAttribute("Reportes", lista2);
         return "ListarReporte";
     }
-    
+
 }
