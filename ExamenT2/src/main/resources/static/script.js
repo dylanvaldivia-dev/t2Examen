@@ -160,7 +160,7 @@ function modalAtencion()
 
         campoServicio.value = servicio;
         campoPrecio.value = precio;
-        campoigv.value = igv;
+        campoigv.value = igv.toFixed(2);
         campototal.value = total.toFixed(2);
 
 

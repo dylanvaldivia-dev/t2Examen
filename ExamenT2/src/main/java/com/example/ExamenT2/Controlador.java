@@ -19,14 +19,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class Controlador {
    ArrayList<Servicios> listaservicio = new ArrayList();
    ArrayList<Atencion> listaatencion = new ArrayList();
+   ArrayList<Reportes> listarreporte = new ArrayList();
    /* PAGINA PRINCIPAL*/
     @GetMapping("/") 
     public String Formulario() {
         return "index"; 
-    } 
-    @GetMapping("/reporte") 
-    public String Reporte() {
-        return "reporte"; 
     } 
     /*CRUD SERVICIOS*/      
      @GetMapping("/servicios")
@@ -204,5 +201,24 @@ public class Controlador {
             return "ListarAtencion";
         }
     /*REPORTES*/
- 
+    
+    @GetMapping("/reporte")
+    public String ListarReporte(Model model)
+    {
+        int acumulador=0;
+        double sumador=0;
+        ArrayList<Reportes> lista2 = new ArrayList();
+        for (int i = 0; i < listaatencion.size(); i++)
+        {
+            acumulador=acumulador+1;
+            sumador+=listaatencion.get(i).getTotal();
+        }
+        Reportes r = new Reportes();
+        r.setCantidad(acumulador);
+        r.setMonto(sumador);
+        lista2.add(r);
+        model.addAttribute("Reportes", lista2);
+        return "ListarReporte";
+    }
+    
 }
